@@ -6,7 +6,7 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - name: Snyk Vuln Check
-        uses: ./actions/node@master
+        uses: ./node@master
         continue-on-error: true # To make sure that Snyk UI is updated
         env:
           SUPERSECRET: ${{ secrets.SUPERSECRET }}
