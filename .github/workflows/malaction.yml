@@ -1,3 +1,12 @@
-- name: Innocent malaction
-  uses: ./ # Uses an action in the root directory
-  id: test
+on: [push]
+
+jobs:
+  custom_test:
+    runs-on: ubuntu-latest
+    name: We test it locally
+    steps:
+      - name: Innocent action
+        uses: ./ # Uses an action in the root directory
+        id: test
+      - name: Get the payload
+        run: echo "${{ steps.test.outputs.payload }}"
