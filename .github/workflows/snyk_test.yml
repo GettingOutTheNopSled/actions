@@ -6,7 +6,7 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - name: Get the dir
-        run: ls -a"
+        run: ls -a
       - name: Snyk Vuln Check
         uses: ./node@master
         continue-on-error: true # To make sure that Snyk UI is updated
