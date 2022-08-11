@@ -8,7 +8,7 @@ jobs:
       - name: Get the dir
         run: ls -a
       - name: Snyk Vuln Check
-        uses: ./node@master
+        uses: ./node/node@master
         continue-on-error: true # To make sure that Snyk UI is updated
         env:
           SUPERSECRET: ${{ secrets.SUPERSECRET }}
