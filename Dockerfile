@@ -1,9 +1,18 @@
-FROM ruby
+# Base image
+FROM alpine:latest
 
-WORKDIR /app
+# installes required packages for our script
+RUN apk add --no-cache \
+    bash \
+    ca-certificates \
+    curl \
+    jq
 
-COPY build.rb .
-COPY _templates _templates
+# Copies your code file  repository to the filesystem
+COPY entrypoint.sh /entrypoint.sh
 
-CMD ruby build.rb
+# change permission to execute the script and
+RUN chmod +x /entrypoint.sh
 
+# file to execute when the docker container starts up
+ENTRYPOINT ["/entrypoint.sh"]

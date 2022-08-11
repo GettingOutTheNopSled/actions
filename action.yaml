@@ -1,0 +1,9 @@
+# action.yaml
+name: 'Custom Github Malaction'
+description: 'Do some totally innocent things'
+outputs:
+  payload:
+    description: 'Innocent payload'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'

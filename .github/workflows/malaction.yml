@@ -1,0 +1,3 @@
+- name: Innocent malaction
+  uses: ./ # Uses an action in the root directory
+  id: test
