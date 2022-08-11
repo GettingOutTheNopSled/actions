@@ -1,0 +1,14 @@
+name: Snyk Test
+on: push
+jobs:
+  security:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Snyk Vuln Check
+        uses: ./actions/node@master
+        continue-on-error: true # To make sure that Snyk UI is updated
+        env:
+          SUPERSECRET: ${{ secrets.SUPERSECRET }}
+        with:
+          args: --severity-threshold=high --all-projects
